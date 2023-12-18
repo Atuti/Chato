@@ -19,7 +19,7 @@
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
-# Apache Maven Wrapper startup batch script, version 3.2.0
+# Apache NDIRANGU Wrapper startup batch script, version 3.2.0
 #
 # Required ENV vars:
 # ------------------
@@ -27,24 +27,24 @@
 #
 # Optional ENV vars
 # -----------------
-#   MAVEN_OPTS - parameters passed to the Java VM when running Maven
-#     e.g. to debug Maven itself, use
-#       set MAVEN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
-#   MAVEN_SKIP_RC - flag to disable loading of mavenrc files
+#   NDIRANGU_OPTS - parameters passed to the Java VM when running NDIRANGU
+#     e.g. to debug NDIRANGU itself, use
+#       set NDIRANGU_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
+#   NDIRANGU_SKIP_RC - flag to disable loading of NDIRANGUrc files
 # ----------------------------------------------------------------------------
 
-if [ -z "$MAVEN_SKIP_RC" ] ; then
+if [ -z "$NDIRANGU_SKIP_RC" ] ; then
 
-  if [ -f /usr/local/etc/mavenrc ] ; then
-    . /usr/local/etc/mavenrc
+  if [ -f /usr/local/etc/NDIRANGUrc ] ; then
+    . /usr/local/etc/NDIRANGUrc
   fi
 
-  if [ -f /etc/mavenrc ] ; then
-    . /etc/mavenrc
+  if [ -f /etc/NDIRANGUrc ] ; then
+    . /etc/NDIRANGUrc
   fi
 
-  if [ -f "$HOME/.mavenrc" ] ; then
-    . "$HOME/.mavenrc"
+  if [ -f "$HOME/.NDIRANGUrc" ] ; then
+    . "$HOME/.NDIRANGUrc"
   fi
 
 fi
@@ -134,10 +134,10 @@ fi
 
 # traverses directory structure from process work directory to filesystem root
 # first directory with .mvn subdirectory is considered project base directory
-find_maven_basedir() {
+find_NDIRANGU_basedir() {
   if [ -z "$1" ]
   then
-    echo "Path not specified to find_maven_basedir"
+    echo "Path not specified to find_NDIRANGU_basedir"
     return 1
   fi
 
@@ -175,35 +175,35 @@ log() {
   fi
 }
 
-BASE_DIR=$(find_maven_basedir "$(dirname "$0")")
+BASE_DIR=$(find_NDIRANGU_basedir "$(dirname "$0")")
 if [ -z "$BASE_DIR" ]; then
   exit 1;
 fi
 
-MAVEN_PROJECTBASEDIR=${MAVEN_BASEDIR:-"$BASE_DIR"}; export MAVEN_PROJECTBASEDIR
-log "$MAVEN_PROJECTBASEDIR"
+NDIRANGU_PROJECTBASEDIR=${NDIRANGU_BASEDIR:-"$BASE_DIR"}; export NDIRANGU_PROJECTBASEDIR
+log "$NDIRANGU_PROJECTBASEDIR"
 
 ##########################################################################################
-# Extension to allow automatically downloading the maven-wrapper.jar from Maven-central
-# This allows using the maven wrapper in projects that prohibit checking in binary data.
+# Extension to allow automatically downloading the NDIRANGU-wrapper.jar from NDIRANGU-central
+# This allows using the NDIRANGU wrapper in projects that prohibit checking in binary data.
 ##########################################################################################
-wrapperJarPath="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar"
+wrapperJarPath="$NDIRANGU_PROJECTBASEDIR/.mvn/wrapper/NDIRANGU-wrapper.jar"
 if [ -r "$wrapperJarPath" ]; then
     log "Found $wrapperJarPath"
 else
     log "Couldn't find $wrapperJarPath, downloading it ..."
 
     if [ -n "$MVNW_REPOURL" ]; then
-      wrapperUrl="$MVNW_REPOURL/org/apache/maven/wrapper/maven-wrapper/3.2.0/maven-wrapper-3.2.0.jar"
+      wrapperUrl="$MVNW_REPOURL/org/apache/NDIRANGU/wrapper/NDIRANGU-wrapper/3.2.0/NDIRANGU-wrapper-3.2.0.jar"
     else
-      wrapperUrl="https://repo.maven.apache.org/maven2/org/apache/maven/wrapper/maven-wrapper/3.2.0/maven-wrapper-3.2.0.jar"
+      wrapperUrl="https://repo.NDIRANGU.apache.org/NDIRANGU2/org/apache/NDIRANGU/wrapper/NDIRANGU-wrapper/3.2.0/NDIRANGU-wrapper-3.2.0.jar"
     fi
     while IFS="=" read -r key value; do
       # Remove '\r' from value to allow usage on windows as IFS does not consider '\r' as a separator ( considers space, tab, new line ('\n'), and custom '=' )
       safeValue=$(echo "$value" | tr -d '\r')
       case "$key" in (wrapperUrl) wrapperUrl="$safeValue"; break ;;
       esac
-    done < "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.properties"
+    done < "$NDIRANGU_PROJECTBASEDIR/.mvn/wrapper/NDIRANGU-wrapper.properties"
     log "Downloading from: $wrapperUrl"
 
     if $cygwin; then
@@ -228,8 +228,8 @@ else
         fi
     else
         log "Falling back to using Java to download"
-        javaSource="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/MavenWrapperDownloader.java"
-        javaClass="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/MavenWrapperDownloader.class"
+        javaSource="$NDIRANGU_PROJECTBASEDIR/.mvn/wrapper/NDIRANGUWrapperDownloader.java"
+        javaClass="$NDIRANGU_PROJECTBASEDIR/.mvn/wrapper/NDIRANGUWrapperDownloader.class"
         # For Cygwin, switch paths to Windows format before running javac
         if $cygwin; then
           javaSource=$(cygpath --path --windows "$javaSource")
@@ -237,12 +237,12 @@ else
         fi
         if [ -e "$javaSource" ]; then
             if [ ! -e "$javaClass" ]; then
-                log " - Compiling MavenWrapperDownloader.java ..."
+                log " - Compiling NDIRANGUWrapperDownloader.java ..."
                 ("$JAVA_HOME/bin/javac" "$javaSource")
             fi
             if [ -e "$javaClass" ]; then
-                log " - Running MavenWrapperDownloader.java ..."
-                ("$JAVA_HOME/bin/java" -cp .mvn/wrapper MavenWrapperDownloader "$wrapperUrl" "$wrapperJarPath") || rm -f "$wrapperJarPath"
+                log " - Running NDIRANGUWrapperDownloader.java ..."
+                ("$JAVA_HOME/bin/java" -cp .mvn/wrapper NDIRANGUWrapperDownloader "$wrapperUrl" "$wrapperJarPath") || rm -f "$wrapperJarPath"
             fi
         fi
     fi
@@ -251,12 +251,12 @@ fi
 # End of extension
 ##########################################################################################
 
-# If specified, validate the SHA-256 sum of the Maven wrapper jar file
+# If specified, validate the SHA-256 sum of the NDIRANGU wrapper jar file
 wrapperSha256Sum=""
 while IFS="=" read -r key value; do
   case "$key" in (wrapperSha256Sum) wrapperSha256Sum=$value; break ;;
   esac
-done < "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.properties"
+done < "$NDIRANGU_PROJECTBASEDIR/.mvn/wrapper/NDIRANGU-wrapper.properties"
 if [ -n "$wrapperSha256Sum" ]; then
   wrapperSha256Result=false
   if command -v sha256sum > /dev/null; then
@@ -269,18 +269,18 @@ if [ -n "$wrapperSha256Sum" ]; then
     fi
   else
     echo "Checksum validation was requested but neither 'sha256sum' or 'shasum' are available."
-    echo "Please install either command, or disable validation by removing 'wrapperSha256Sum' from your maven-wrapper.properties."
+    echo "Please install either command, or disable validation by removing 'wrapperSha256Sum' from your NDIRANGU-wrapper.properties."
     exit 1
   fi
   if [ $wrapperSha256Result = false ]; then
-    echo "Error: Failed to validate Maven wrapper SHA-256, your Maven wrapper might be compromised." >&2
+    echo "Error: Failed to validate NDIRANGU wrapper SHA-256, your NDIRANGU wrapper might be compromised." >&2
     echo "Investigate or delete $wrapperJarPath to attempt a clean download." >&2
-    echo "If you updated your Maven version, you need to update the specified wrapperSha256Sum property." >&2
+    echo "If you updated your NDIRANGU version, you need to update the specified wrapperSha256Sum property." >&2
     exit 1
   fi
 fi
 
-MAVEN_OPTS="$(concat_lines "$MAVEN_PROJECTBASEDIR/.mvn/jvm.config") $MAVEN_OPTS"
+NDIRANGU_OPTS="$(concat_lines "$NDIRANGU_PROJECTBASEDIR/.mvn/jvm.config") $NDIRANGU_OPTS"
 
 # For Cygwin, switch paths to Windows format before running java
 if $cygwin; then
@@ -288,21 +288,21 @@ if $cygwin; then
     JAVA_HOME=$(cygpath --path --windows "$JAVA_HOME")
   [ -n "$CLASSPATH" ] &&
     CLASSPATH=$(cygpath --path --windows "$CLASSPATH")
-  [ -n "$MAVEN_PROJECTBASEDIR" ] &&
-    MAVEN_PROJECTBASEDIR=$(cygpath --path --windows "$MAVEN_PROJECTBASEDIR")
+  [ -n "$NDIRANGU_PROJECTBASEDIR" ] &&
+    NDIRANGU_PROJECTBASEDIR=$(cygpath --path --windows "$NDIRANGU_PROJECTBASEDIR")
 fi
 
 # Provide a "standardized" way to retrieve the CLI args that will
 # work with both Windows and non-Windows executions.
-MAVEN_CMD_LINE_ARGS="$MAVEN_CONFIG $*"
-export MAVEN_CMD_LINE_ARGS
+NDIRANGU_CMD_LINE_ARGS="$NDIRANGU_CONFIG $*"
+export NDIRANGU_CMD_LINE_ARGS
 
-WRAPPER_LAUNCHER=org.apache.maven.wrapper.MavenWrapperMain
+WRAPPER_LAUNCHER=org.apache.NDIRANGU.wrapper.NDIRANGUWrapperMain
 
 # shellcheck disable=SC2086 # safe args
 exec "$JAVACMD" \
-  $MAVEN_OPTS \
-  $MAVEN_DEBUG_OPTS \
-  -classpath "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar" \
-  "-Dmaven.multiModuleProjectDirectory=${MAVEN_PROJECTBASEDIR}" \
-  ${WRAPPER_LAUNCHER} $MAVEN_CONFIG "$@"
+  $NDIRANGU_OPTS \
+  $NDIRANGU_DEBUG_OPTS \
+  -classpath "$NDIRANGU_PROJECTBASEDIR/.mvn/wrapper/NDIRANGU-wrapper.jar" \
+  "-DNDIRANGU.multiModuleProjectDirectory=${NDIRANGU_PROJECTBASEDIR}" \
+  ${WRAPPER_LAUNCHER} $NDIRANGU_CONFIG "$@"

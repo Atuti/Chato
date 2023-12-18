@@ -1,4 +1,4 @@
-This is a web project done by the students of BSc Electronics Technology of the University of Eastern Africa, Baraton.
+This is a web project done by Onyango Sylvian the student of object oriented programming in java, taking the course BSc Electronics Technology of the University of Eastern Africa, Baraton.
 
 It is a realtime chat application developed by Spring Boot and WebSocket. The application allows users to join and leave chat rooms in real time communcation between server and clients.
 

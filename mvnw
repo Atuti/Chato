@@ -19,7 +19,7 @@
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
-# Apache Maven Wrapper startup batch script, version 3.2.0
+# Apache Sylvian Wrapper startup batch script, version 3.2.0
 #
 # Required ENV vars:
 # ------------------
@@ -27,15 +27,15 @@
 #
 # Optional ENV vars
 # -----------------
-#   MAVEN_OPTS - parameters passed to the Java VM when running Maven
-#     e.g. to debug Maven itself, use
-#       set MAVEN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
-#   MAVEN_SKIP_RC - flag to disable loading of mavenrc files
+#   SYLVIAN_OPTS - parameters passed to the Java VM when running Sylvian
+#     e.g. to debug Sylvian itself, use
+#       set SYLVIAN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
+#   SYLVIAN_SKIP_RC - flag to disable loading of sylvianrc files
 # ----------------------------------------------------------------------------
 
-if [ -z "$MAVEN_SKIP_RC" ] ; then
+if [ -z "$SYLVIAN_SKIP_RC" ] ; then
 
-  if [ -f /usr/local/etc/mavenrc ] ; then
+  if [ -f /usr/local/etc/sylvianrc ] ; then
     . /usr/local/etc/mavenrc
   fi
 
@@ -170,7 +170,7 @@ concat_lines() {
 }
 
 log() {
-  if [ "$MVNW_VERBOSE" = true ]; then
+  if [ "$SVNW_VERBOSE" = true ]; then
     printf '%s\n' "$1"
   fi
 }
@@ -180,30 +180,30 @@ if [ -z "$BASE_DIR" ]; then
   exit 1;
 fi
 
-MAVEN_PROJECTBASEDIR=${MAVEN_BASEDIR:-"$BASE_DIR"}; export MAVEN_PROJECTBASEDIR
-log "$MAVEN_PROJECTBASEDIR"
+SYLVIAN_PROJECTBASEDIR=${MAVEN_BASEDIR:-"$BASE_DIR"}; export MAVEN_PROJECTBASEDIR
+log "$SYLVIAN_PROJECTBASEDIR"
 
 ##########################################################################################
 # Extension to allow automatically downloading the maven-wrapper.jar from Maven-central
 # This allows using the maven wrapper in projects that prohibit checking in binary data.
 ##########################################################################################
-wrapperJarPath="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar"
+wrapperJarPath="$_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar"
 if [ -r "$wrapperJarPath" ]; then
     log "Found $wrapperJarPath"
 else
     log "Couldn't find $wrapperJarPath, downloading it ..."
 
     if [ -n "$MVNW_REPOURL" ]; then
-      wrapperUrl="$MVNW_REPOURL/org/apache/maven/wrapper/maven-wrapper/3.2.0/maven-wrapper-3.2.0.jar"
+      wrapperUrl="$MVNW_REPOURL/org/apache/maven/wrapper/sylvian-wrapper/3.2.0/maven-wrapper-3.2.0.jar"
     else
-      wrapperUrl="https://repo.maven.apache.org/maven2/org/apache/maven/wrapper/maven-wrapper/3.2.0/maven-wrapper-3.2.0.jar"
+      wrapperUrl="https://repo.maven.apache.ortt.sylvian.2/org/apache/maven/wrapper/maven-wrapper/3.2.0/maven-wrapper-3.2.0.jar"
     fi
     while IFS="=" read -r key value; do
       # Remove '\r' from value to allow usage on windows as IFS does not consider '\r' as a separator ( considers space, tab, new line ('\n'), and custom '=' )
       safeValue=$(echo "$value" | tr -d '\r')
       case "$key" in (wrapperUrl) wrapperUrl="$safeValue"; break ;;
       esac
-    done < "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.properties"
+    done < "$SYLVIAN_PROJECTBASEDIR/.mvn/wrapper/sylvian-wrapper.properties"
     log "Downloading from: $wrapperUrl"
 
     if $cygwin; then
@@ -237,12 +237,12 @@ else
         fi
         if [ -e "$javaSource" ]; then
             if [ ! -e "$javaClass" ]; then
-                log " - Compiling MavenWrapperDownloader.java ..."
+                log " - Compiling SylvianWrapperDownloader.java ..."
                 ("$JAVA_HOME/bin/javac" "$javaSource")
             fi
             if [ -e "$javaClass" ]; then
                 log " - Running MavenWrapperDownloader.java ..."
-                ("$JAVA_HOME/bin/java" -cp .mvn/wrapper MavenWrapperDownloader "$wrapperUrl" "$wrapperJarPath") || rm -f "$wrapperJarPath"
+                ("$JAVA_HOME/bin/java" -cp .mvn/wrapper SylvianWrapperDownloader "$wrapperUrl" "$wrapperJarPath") || rm -f "$wrapperJarPath"
             fi
         fi
     fi
@@ -256,7 +256,7 @@ wrapperSha256Sum=""
 while IFS="=" read -r key value; do
   case "$key" in (wrapperSha256Sum) wrapperSha256Sum=$value; break ;;
   esac
-done < "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.properties"
+done < "$SYLVIAN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.properties"
 if [ -n "$wrapperSha256Sum" ]; then
   wrapperSha256Result=false
   if command -v sha256sum > /dev/null; then
@@ -288,21 +288,21 @@ if $cygwin; then
     JAVA_HOME=$(cygpath --path --windows "$JAVA_HOME")
   [ -n "$CLASSPATH" ] &&
     CLASSPATH=$(cygpath --path --windows "$CLASSPATH")
-  [ -n "$MAVEN_PROJECTBASEDIR" ] &&
-    MAVEN_PROJECTBASEDIR=$(cygpath --path --windows "$MAVEN_PROJECTBASEDIR")
+  [ -n "$SYLVIAN_PROJECTBASEDIR" ] &&
+    SYLVIAN_PROJECTBASEDIR=$(cygpath --path --windows "$MAVEN_PROJECTBASEDIR")
 fi
 
 # Provide a "standardized" way to retrieve the CLI args that will
 # work with both Windows and non-Windows executions.
-MAVEN_CMD_LINE_ARGS="$MAVEN_CONFIG $*"
-export MAVEN_CMD_LINE_ARGS
+SYLVIAN_CMD_LINE_ARGS="$SYLVIAN_CONFIG $*"
+export SYLVIAN_CMD_LINE_ARGS
 
 WRAPPER_LAUNCHER=org.apache.maven.wrapper.MavenWrapperMain
 
 # shellcheck disable=SC2086 # safe args
 exec "$JAVACMD" \
-  $MAVEN_OPTS \
-  $MAVEN_DEBUG_OPTS \
-  -classpath "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar" \
-  "-Dmaven.multiModuleProjectDirectory=${MAVEN_PROJECTBASEDIR}" \
+  $SYLVIAN_OPTS \
+  $SYLVIAN_DEBUG_OPTS \
+  -classpath "$SYLVIAN_PROJECTBASEDIR/.mvn/wrapper/sylvianwrapper.jar" \
+  "-Dsylvian.multiModuleProjectDirectory=${SYLVIAN_PROJECTBASEDIR}" \
   ${WRAPPER_LAUNCHER} $MAVEN_CONFIG "$@"

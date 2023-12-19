@@ -180,7 +180,7 @@ if [ -z "$BASE_DIR" ]; then
   exit 1;
 fi
 
-MAVEN_PROJECTBASEDIR=${MAVEN_BASEDIR:-"$BASE_DIR"}; export MAVEN_PROJECTBASEDIR
+MAVEN_PROJECTBASEDIR=${MAVEN_BASEDIR:-"$BASE_DIR"}; export MAVE_PROJECTBASEDIR
 log "$MAVEN_PROJECTBASEDIR"
 
 ##########################################################################################

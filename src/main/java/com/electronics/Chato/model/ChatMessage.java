@@ -25,8 +25,45 @@ public class ChatMessage {
     private String sender;
     private MessageType type;
 
+    // Constructor without arguments
+    public ChatMessage() {
+    }
 
-    public enum MessageType{
+    // Constructor with three arguments
+    public ChatMessage(String content, String sender, MessageType type) {
+        this.content = content;
+        this.sender = sender;
+        this.type = type;
+    }
+
+    // Setters for the three variables
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
+
+    public void setType(MessageType type) {
+        this.type = type;
+    }
+
+    // Getters for the three variables
+    public String getContent() {
+        return content;
+    }
+
+    public String getSender() {
+        return sender;
+    }
+
+    public MessageType getType() {
+        return type;
+    }
+
+    // Enum for message types
+      public enum MessageType{
         CHAT, LEAVE, JOIN
     }
 }

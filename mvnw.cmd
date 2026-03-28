@@ -18,35 +18,35 @@
 @REM ----------------------------------------------------------------------------
 
 @REM ----------------------------------------------------------------------------
-@REM Apache Maven Wrapper startup batch script, version 3.2.0
+@REM Apache MOKUA Wrapper startup batch script, version 3.2.0
 @REM
 @REM Required ENV vars:
 @REM JAVA_HOME - location of a JDK home dir
 @REM
 @REM Optional ENV vars
-@REM MAVEN_BATCH_ECHO - set to 'on' to enable the echoing of the batch commands
-@REM MAVEN_BATCH_PAUSE - set to 'on' to wait for a keystroke before ending
-@REM MAVEN_OPTS - parameters passed to the Java VM when running Maven
-@REM     e.g. to debug Maven itself, use
-@REM set MAVEN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
-@REM MAVEN_SKIP_RC - flag to disable loading of mavenrc files
+@REM MOKUA_BATCH_ECHO - set to 'on' to enable the echoing of the batch commands
+@REM MOKUA_BATCH_PAUSE - set to 'on' to wait for a keystroke before ending
+@REM MOKUA_OPTS - parameters passed to the Java VM when running MOKUA
+@REM     e.g. to debug MOKUA itself, use
+@REM set MOKUA_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
+@REM MOKUA_SKIP_RC - flag to disable loading of MOKUArc files
 @REM ----------------------------------------------------------------------------
 
-@REM Begin all REM lines with '@' in case MAVEN_BATCH_ECHO is 'on'
+@REM Begin all REM lines with '@' in case MOKUA_BATCH_ECHO is 'on'
 @echo off
 @REM set title of command window
 title %0
-@REM enable echoing by setting MAVEN_BATCH_ECHO to 'on'
-@if "%MAVEN_BATCH_ECHO%" == "on"  echo %MAVEN_BATCH_ECHO%
+@REM enable echoing by setting MOKUA_BATCH_ECHO to 'on'
+@if "%MOKUA_BATCH_ECHO%" == "on"  echo %MOKUA_BATCH_ECHO%
 
 @REM set %HOME% to equivalent of $HOME
 if "%HOME%" == "" (set "HOME=%HOMEDRIVE%%HOMEPATH%")
 
 @REM Execute a user defined script before this one
-if not "%MAVEN_SKIP_RC%" == "" goto skipRcPre
+if not "%MOKUA_SKIP_RC%" == "" goto skipRcPre
 @REM check for pre script, once with legacy .bat ending and once with .cmd ending
-if exist "%USERPROFILE%\mavenrc_pre.bat" call "%USERPROFILE%\mavenrc_pre.bat" %*
-if exist "%USERPROFILE%\mavenrc_pre.cmd" call "%USERPROFILE%\mavenrc_pre.cmd" %*
+if exist "%USERPROFILE%\MOKUArc_pre.bat" call "%USERPROFILE%\MOKUArc_pre.bat" %*
+if exist "%USERPROFILE%\MOKUArc_pre.cmd" call "%USERPROFILE%\MOKUArc_pre.cmd" %*
 :skipRcPre
 
 @setlocal
@@ -84,8 +84,8 @@ goto error
 @REM Find the project base dir, i.e. the directory that contains the folder ".mvn".
 @REM Fallback to current working directory if not found.
 
-set MAVEN_PROJECTBASEDIR=%MAVEN_BASEDIR%
-IF NOT "%MAVEN_PROJECTBASEDIR%"=="" goto endDetectBaseDir
+set MOKUA_PROJECTBASEDIR=%MOKUA_BASEDIR%
+IF NOT "%MOKUA_PROJECTBASEDIR%"=="" goto endDetectBaseDir
 
 set EXEC_DIR=%CD%
 set WDIR=%EXEC_DIR%
@@ -97,43 +97,43 @@ set WDIR=%CD%
 goto findBaseDir
 
 :baseDirFound
-set MAVEN_PROJECTBASEDIR=%WDIR%
+set MOKUA_PROJECTBASEDIR=%WDIR%
 cd "%EXEC_DIR%"
 goto endDetectBaseDir
 
 :baseDirNotFound
-set MAVEN_PROJECTBASEDIR=%EXEC_DIR%
+set MOKUA_PROJECTBASEDIR=%EXEC_DIR%
 cd "%EXEC_DIR%"
 
 :endDetectBaseDir
 
-IF NOT EXIST "%MAVEN_PROJECTBASEDIR%\.mvn\jvm.config" goto endReadAdditionalConfig
+IF NOT EXIST "%MOKUA_PROJECTBASEDIR%\.mvn\jvm.config" goto endReadAdditionalConfig
 
 @setlocal EnableExtensions EnableDelayedExpansion
-for /F "usebackq delims=" %%a in ("%MAVEN_PROJECTBASEDIR%\.mvn\jvm.config") do set JVM_CONFIG_MAVEN_PROPS=!JVM_CONFIG_MAVEN_PROPS! %%a
-@endlocal & set JVM_CONFIG_MAVEN_PROPS=%JVM_CONFIG_MAVEN_PROPS%
+for /F "usebackq delims=" %%a in ("%MOKUA_PROJECTBASEDIR%\.mvn\jvm.config") do set JVM_CONFIG_MOKUA_PROPS=!JVM_CONFIG_MOKUA_PROPS! %%a
+@endlocal & set JVM_CONFIG_MOKUA_PROPS=%JVM_CONFIG_MOKUA_PROPS%
 
 :endReadAdditionalConfig
 
-SET MAVEN_JAVA_EXE="%JAVA_HOME%\bin\java.exe"
-set WRAPPER_JAR="%MAVEN_PROJECTBASEDIR%\.mvn\wrapper\maven-wrapper.jar"
-set WRAPPER_LAUNCHER=org.apache.maven.wrapper.MavenWrapperMain
+SET MOKUA_JAVA_EXE="%JAVA_HOME%\bin\java.exe"
+set WRAPPER_JAR="%MOKUA_PROJECTBASEDIR%\.mvn\wrapper\MOKUA-wrapper.jar"
+set WRAPPER_LAUNCHER=org.apache.MOKUA.wrapper.MOKUAWrapperMain
 
-set WRAPPER_URL="https://repo.maven.apache.org/maven2/org/apache/maven/wrapper/maven-wrapper/3.2.0/maven-wrapper-3.2.0.jar"
+set WRAPPER_URL="https://repo.MOKUA.apache.org/MOKUA2/org/apache/MOKUA/wrapper/MOKUA-wrapper/3.2.0/MOKUA-wrapper-3.2.0.jar"
 
-FOR /F "usebackq tokens=1,2 delims==" %%A IN ("%MAVEN_PROJECTBASEDIR%\.mvn\wrapper\maven-wrapper.properties") DO (
+FOR /F "usebackq tokens=1,2 delims==" %%A IN ("%MOKUA_PROJECTBASEDIR%\.mvn\wrapper\MOKUA-wrapper.properties") DO (
     IF "%%A"=="wrapperUrl" SET WRAPPER_URL=%%B
 )
 
-@REM Extension to allow automatically downloading the maven-wrapper.jar from Maven-central
-@REM This allows using the maven wrapper in projects that prohibit checking in binary data.
+@REM Extension to allow automatically downloading the MOKUA-wrapper.jar from MOKUA-central
+@REM This allows using the MOKUA wrapper in projects that prohibit checking in binary data.
 if exist %WRAPPER_JAR% (
     if "%MVNW_VERBOSE%" == "true" (
         echo Found %WRAPPER_JAR%
     )
 ) else (
     if not "%MVNW_REPOURL%" == "" (
-        SET WRAPPER_URL="%MVNW_REPOURL%/org/apache/maven/wrapper/maven-wrapper/3.2.0/maven-wrapper-3.2.0.jar"
+        SET WRAPPER_URL="%MVNW_REPOURL%/org/apache/MOKUA/wrapper/MOKUA-wrapper/3.2.0/MOKUA-wrapper-3.2.0.jar"
     )
     if "%MVNW_VERBOSE%" == "true" (
         echo Couldn't find %WRAPPER_JAR%, downloading it ...
@@ -153,18 +153,18 @@ if exist %WRAPPER_JAR% (
 )
 @REM End of extension
 
-@REM If specified, validate the SHA-256 sum of the Maven wrapper jar file
+@REM If specified, validate the SHA-256 sum of the MOKUA wrapper jar file
 SET WRAPPER_SHA_256_SUM=""
-FOR /F "usebackq tokens=1,2 delims==" %%A IN ("%MAVEN_PROJECTBASEDIR%\.mvn\wrapper\maven-wrapper.properties") DO (
+FOR /F "usebackq tokens=1,2 delims==" %%A IN ("%MOKUA_PROJECTBASEDIR%\.mvn\wrapper\MOKUA-wrapper.properties") DO (
     IF "%%A"=="wrapperSha256Sum" SET WRAPPER_SHA_256_SUM=%%B
 )
 IF NOT %WRAPPER_SHA_256_SUM%=="" (
     powershell -Command "&{"^
        "$hash = (Get-FileHash \"%WRAPPER_JAR%\" -Algorithm SHA256).Hash.ToLower();"^
        "If('%WRAPPER_SHA_256_SUM%' -ne $hash){"^
-       "  Write-Output 'Error: Failed to validate Maven wrapper SHA-256, your Maven wrapper might be compromised.';"^
+       "  Write-Output 'Error: Failed to validate MOKUA wrapper SHA-256, your MOKUA wrapper might be compromised.';"^
        "  Write-Output 'Investigate or delete %WRAPPER_JAR% to attempt a clean download.';"^
-       "  Write-Output 'If you updated your Maven version, you need to update the specified wrapperSha256Sum property.';"^
+       "  Write-Output 'If you updated your MOKUA version, you need to update the specified wrapperSha256Sum property.';"^
        "  exit 1;"^
        "}"^
        "}"
@@ -173,15 +173,15 @@ IF NOT %WRAPPER_SHA_256_SUM%=="" (
 
 @REM Provide a "standardized" way to retrieve the CLI args that will
 @REM work with both Windows and non-Windows executions.
-set MAVEN_CMD_LINE_ARGS=%*
+set MOKUA_CMD_LINE_ARGS=%*
 
-%MAVEN_JAVA_EXE% ^
-  %JVM_CONFIG_MAVEN_PROPS% ^
-  %MAVEN_OPTS% ^
-  %MAVEN_DEBUG_OPTS% ^
+%MOKUA_JAVA_EXE% ^
+  %JVM_CONFIG_MOKUA_PROPS% ^
+  %MOKUA_OPTS% ^
+  %MOKUA_DEBUG_OPTS% ^
   -classpath %WRAPPER_JAR% ^
-  "-Dmaven.multiModuleProjectDirectory=%MAVEN_PROJECTBASEDIR%" ^
-  %WRAPPER_LAUNCHER% %MAVEN_CONFIG% %*
+  "-DMOKUA.multiModuleProjectDirectory=%MOKUA_PROJECTBASEDIR%" ^
+  %WRAPPER_LAUNCHER% %MOKUA_CONFIG% %*
 if ERRORLEVEL 1 goto error
 goto end
 
@@ -191,15 +191,15 @@ set ERROR_CODE=1
 :end
 @endlocal & set ERROR_CODE=%ERROR_CODE%
 
-if not "%MAVEN_SKIP_RC%"=="" goto skipRcPost
+if not "%MOKUA_SKIP_RC%"=="" goto skipRcPost
 @REM check for post script, once with legacy .bat ending and once with .cmd ending
-if exist "%USERPROFILE%\mavenrc_post.bat" call "%USERPROFILE%\mavenrc_post.bat"
-if exist "%USERPROFILE%\mavenrc_post.cmd" call "%USERPROFILE%\mavenrc_post.cmd"
+if exist "%USERPROFILE%\MOKUArc_post.bat" call "%USERPROFILE%\MOKUArc_post.bat"
+if exist "%USERPROFILE%\MOKUArc_post.cmd" call "%USERPROFILE%\MOKUArc_post.cmd"
 :skipRcPost
 
-@REM pause the script if MAVEN_BATCH_PAUSE is set to 'on'
-if "%MAVEN_BATCH_PAUSE%"=="on" pause
+@REM pause the script if MOKUA_BATCH_PAUSE is set to 'on'
+if "%MOKUA_BATCH_PAUSE%"=="on" pause
 
-if "%MAVEN_TERMINATE_CMD%"=="on" exit %ERROR_CODE%
+if "%MOKUA_TERMINATE_CMD%"=="on" exit %ERROR_CODE%
 
 cmd /C exit /B %ERROR_CODE%

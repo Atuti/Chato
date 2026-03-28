@@ -19,7 +19,7 @@
 # ----------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------
-# Apache Maven Wrapper startup batch script, version 3.2.0
+# Apache MOKUA Wrapper startup batch script, version 3.2.0
 #
 # Required ENV vars:
 # ------------------
@@ -27,24 +27,24 @@
 #
 # Optional ENV vars
 # -----------------
-#   MAVEN_OPTS - parameters passed to the Java VM when running Maven
-#     e.g. to debug Maven itself, use
-#       set MAVEN_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
-#   MAVEN_SKIP_RC - flag to disable loading of mavenrc files
+#   MOKUA_OPTS - parameters passed to the Java VM when running MOKUA
+#     e.g. to debug MOKUA itself, use
+#       set MOKUA_OPTS=-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000
+#   MOKUA_SKIP_RC - flag to disable loading of MOKUArc files
 # ----------------------------------------------------------------------------
 
-if [ -z "$MAVEN_SKIP_RC" ] ; then
+if [ -z "$MOKUA_SKIP_RC" ] ; then
 
-  if [ -f /usr/local/etc/mavenrc ] ; then
-    . /usr/local/etc/mavenrc
+  if [ -f /usr/local/etc/MOKUArc ] ; then
+    . /usr/local/etc/MOKUArc
   fi
 
-  if [ -f /etc/mavenrc ] ; then
-    . /etc/mavenrc
+  if [ -f /etc/MOKUArc ] ; then
+    . /etc/MOKUArc
   fi
 
-  if [ -f "$HOME/.mavenrc" ] ; then
-    . "$HOME/.mavenrc"
+  if [ -f "$HOME/.MOKUArc" ] ; then
+    . "$HOME/.MOKUArc"
   fi
 
 fi
@@ -134,10 +134,10 @@ fi
 
 # traverses directory structure from process work directory to filesystem root
 # first directory with .mvn subdirectory is considered project base directory
-find_maven_basedir() {
+find_MOKUA_basedir() {
   if [ -z "$1" ]
   then
-    echo "Path not specified to find_maven_basedir"
+    echo "Path not specified to find_MOKUA_basedir"
     return 1
   fi
 
@@ -175,35 +175,35 @@ log() {
   fi
 }
 
-BASE_DIR=$(find_maven_basedir "$(dirname "$0")")
+BASE_DIR=$(find_MOKUA_basedir "$(dirname "$0")")
 if [ -z "$BASE_DIR" ]; then
   exit 1;
 fi
 
-MAVEN_PROJECTBASEDIR=${MAVEN_BASEDIR:-"$BASE_DIR"}; export MAVEN_PROJECTBASEDIR
-log "$MAVEN_PROJECTBASEDIR"
+MOKUA_PROJECTBASEDIR=${MOKUA_BASEDIR:-"$BASE_DIR"}; export MOKUA_PROJECTBASEDIR
+log "$MOKUA_PROJECTBASEDIR"
 
 ##########################################################################################
-# Extension to allow automatically downloading the maven-wrapper.jar from Maven-central
-# This allows using the maven wrapper in projects that prohibit checking in binary data.
+# Extension to allow automatically downloading the MOKUA-wrapper.jar from MOKUA-central
+# This allows using the MOKUA wrapper in projects that prohibit checking in binary data.
 ##########################################################################################
-wrapperJarPath="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar"
+wrapperJarPath="$MOKUA_PROJECTBASEDIR/.mvn/wrapper/MOKUA-wrapper.jar"
 if [ -r "$wrapperJarPath" ]; then
     log "Found $wrapperJarPath"
 else
     log "Couldn't find $wrapperJarPath, downloading it ..."
 
     if [ -n "$MVNW_REPOURL" ]; then
-      wrapperUrl="$MVNW_REPOURL/org/apache/maven/wrapper/maven-wrapper/3.2.0/maven-wrapper-3.2.0.jar"
+      wrapperUrl="$MVNW_REPOURL/org/apache/MOKUA/wrapper/MOKUA-wrapper/3.2.0/MOKUA-wrapper-3.2.0.jar"
     else
-      wrapperUrl="https://repo.maven.apache.org/maven2/org/apache/maven/wrapper/maven-wrapper/3.2.0/maven-wrapper-3.2.0.jar"
+      wrapperUrl="https://repo.MOKUA.apache.org/MOKUA2/org/apache/MOKUA/wrapper/MOKUA-wrapper/3.2.0/MOKUA-wrapper-3.2.0.jar"
     fi
     while IFS="=" read -r key value; do
       # Remove '\r' from value to allow usage on windows as IFS does not consider '\r' as a separator ( considers space, tab, new line ('\n'), and custom '=' )
       safeValue=$(echo "$value" | tr -d '\r')
       case "$key" in (wrapperUrl) wrapperUrl="$safeValue"; break ;;
       esac
-    done < "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.properties"
+    done < "$MOKUA_PROJECTBASEDIR/.mvn/wrapper/MOKUA-wrapper.properties"
     log "Downloading from: $wrapperUrl"
 
     if $cygwin; then
@@ -228,8 +228,8 @@ else
         fi
     else
         log "Falling back to using Java to download"
-        javaSource="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/MavenWrapperDownloader.java"
-        javaClass="$MAVEN_PROJECTBASEDIR/.mvn/wrapper/MavenWrapperDownloader.class"
+        javaSource="$MOKUA_PROJECTBASEDIR/.mvn/wrapper/MOKUAWrapperDownloader.java"
+        javaClass="$MOKUA_PROJECTBASEDIR/.mvn/wrapper/MOKUAWrapperDownloader.class"
         # For Cygwin, switch paths to Windows format before running javac
         if $cygwin; then
           javaSource=$(cygpath --path --windows "$javaSource")
@@ -237,12 +237,12 @@ else
         fi
         if [ -e "$javaSource" ]; then
             if [ ! -e "$javaClass" ]; then
-                log " - Compiling MavenWrapperDownloader.java ..."
+                log " - Compiling MOKUAWrapperDownloader.java ..."
                 ("$JAVA_HOME/bin/javac" "$javaSource")
             fi
             if [ -e "$javaClass" ]; then
-                log " - Running MavenWrapperDownloader.java ..."
-                ("$JAVA_HOME/bin/java" -cp .mvn/wrapper MavenWrapperDownloader "$wrapperUrl" "$wrapperJarPath") || rm -f "$wrapperJarPath"
+                log " - Running MOKUAWrapperDownloader.java ..."
+                ("$JAVA_HOME/bin/java" -cp .mvn/wrapper MOKUAWrapperDownloader "$wrapperUrl" "$wrapperJarPath") || rm -f "$wrapperJarPath"
             fi
         fi
     fi
@@ -251,12 +251,12 @@ fi
 # End of extension
 ##########################################################################################
 
-# If specified, validate the SHA-256 sum of the Maven wrapper jar file
+# If specified, validate the SHA-256 sum of the MOKUA wrapper jar file
 wrapperSha256Sum=""
 while IFS="=" read -r key value; do
   case "$key" in (wrapperSha256Sum) wrapperSha256Sum=$value; break ;;
   esac
-done < "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.properties"
+done < "$MOKUA_PROJECTBASEDIR/.mvn/wrapper/MOKUA-wrapper.properties"
 if [ -n "$wrapperSha256Sum" ]; then
   wrapperSha256Result=false
   if command -v sha256sum > /dev/null; then
@@ -269,18 +269,18 @@ if [ -n "$wrapperSha256Sum" ]; then
     fi
   else
     echo "Checksum validation was requested but neither 'sha256sum' or 'shasum' are available."
-    echo "Please install either command, or disable validation by removing 'wrapperSha256Sum' from your maven-wrapper.properties."
+    echo "Please install either command, or disable validation by removing 'wrapperSha256Sum' from your MOKUA-wrapper.properties."
     exit 1
   fi
   if [ $wrapperSha256Result = false ]; then
-    echo "Error: Failed to validate Maven wrapper SHA-256, your Maven wrapper might be compromised." >&2
+    echo "Error: Failed to validate MOKUA wrapper SHA-256, your MOKUA wrapper might be compromised." >&2
     echo "Investigate or delete $wrapperJarPath to attempt a clean download." >&2
-    echo "If you updated your Maven version, you need to update the specified wrapperSha256Sum property." >&2
+    echo "If you updated your MOKUA version, you need to update the specified wrapperSha256Sum property." >&2
     exit 1
   fi
 fi
 
-MAVEN_OPTS="$(concat_lines "$MAVEN_PROJECTBASEDIR/.mvn/jvm.config") $MAVEN_OPTS"
+MOKUA_OPTS="$(concat_lines "$MOKUA_PROJECTBASEDIR/.mvn/jvm.config") $MOKUA_OPTS"
 
 # For Cygwin, switch paths to Windows format before running java
 if $cygwin; then
@@ -288,21 +288,21 @@ if $cygwin; then
     JAVA_HOME=$(cygpath --path --windows "$JAVA_HOME")
   [ -n "$CLASSPATH" ] &&
     CLASSPATH=$(cygpath --path --windows "$CLASSPATH")
-  [ -n "$MAVEN_PROJECTBASEDIR" ] &&
-    MAVEN_PROJECTBASEDIR=$(cygpath --path --windows "$MAVEN_PROJECTBASEDIR")
+  [ -n "$MOKUA_PROJECTBASEDIR" ] &&
+    MOKUA_PROJECTBASEDIR=$(cygpath --path --windows "$MOKUA_PROJECTBASEDIR")
 fi
 
 # Provide a "standardized" way to retrieve the CLI args that will
 # work with both Windows and non-Windows executions.
-MAVEN_CMD_LINE_ARGS="$MAVEN_CONFIG $*"
-export MAVEN_CMD_LINE_ARGS
+MOKUA_CMD_LINE_ARGS="$MOKUA_CONFIG $*"
+export MOKUA_CMD_LINE_ARGS
 
-WRAPPER_LAUNCHER=org.apache.maven.wrapper.MavenWrapperMain
+WRAPPER_LAUNCHER=org.apache.MOKUA.wrapper.MOKUAWrapperMain
 
 # shellcheck disable=SC2086 # safe args
 exec "$JAVACMD" \
-  $MAVEN_OPTS \
-  $MAVEN_DEBUG_OPTS \
-  -classpath "$MAVEN_PROJECTBASEDIR/.mvn/wrapper/maven-wrapper.jar" \
-  "-Dmaven.multiModuleProjectDirectory=${MAVEN_PROJECTBASEDIR}" \
-  ${WRAPPER_LAUNCHER} $MAVEN_CONFIG "$@"
+  $MOKUA_OPTS \
+  $MOKUA_DEBUG_OPTS \
+  -classpath "$MOKUA_PROJECTBASEDIR/.mvn/wrapper/MOKUA-wrapper.jar" \
+  "-DMOKUA.multiModuleProjectDirectory=${MOKUA_PROJECTBASEDIR}" \
+  ${WRAPPER_LAUNCHER} $MOKUA_CONFIG "$@"
